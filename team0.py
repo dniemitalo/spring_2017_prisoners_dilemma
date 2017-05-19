@@ -26,28 +26,26 @@ def move(my_history, their_history, my_score, their_score):
         elif len(my_history)==1:
             return 'c'
         elif len(my_history)==2:
-            return 'b'
+            return 'c'
         elif len(my_history)==3:
             return 'c'
         elif len(my_history)==4:
-            return 'b'
+            return 'c'
         elif len(my_history)==5:
-            return 'b'
+            return 'c'
         elif len(my_history)==6:
             return 'c'
         elif len(my_history)==7:
-            return 'b'
+            return 'c'
         elif len(my_history)==8:
             return 'c'
         elif len(my_history)==9:
-            return 'b'
+            return 'c'
     while len(my_history)>9:
         c = their_history.count('b')
         t = float(c)/len(their_history)
         n = my_history[-1]
         m = their_history[-1]
-        recent_round_them = their_history[-1]
-        recent_round_me = my_history[-1]
         if (their_history[-5:] == 'cbcbc') or (their_history[-5:] == 'bcbcb'):
             return 'b'
         elif (their_history[-5:] == 'bbbbb'):
@@ -56,14 +54,6 @@ def move(my_history, their_history, my_score, their_score):
             return 'c'
         elif (their_history[-5:].count('b'))>2:
             return 'b'
-        
-        elif random.random()<.5:
-            for round in range(len(my_history)-1):
-                prior_round_them = their_history[round]
-                prior_round_me = my_history[round]
-                if (prior_round_me == recent_round_me) and \
-                    (prior_round_them == recent_round_them):
-                    return their_history[round]
         elif random.random()<t:
             return 'b'
         elif n == 'b' and m == 'c':
